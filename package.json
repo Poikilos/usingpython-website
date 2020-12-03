@@ -1,0 +1,19 @@
+{
+  "name": "usingpython-website",
+  "version": "0.0.1",
+  "description": "VuePress metadata to generate the Using Python Training Series by Jake Poikilos Gustafson Official Website",
+  "main": "index.js",
+  "authors": {
+    "name": "Jake Gustafson",
+    "email": "7557867+poikilos@users.noreply.github.com"
+  },
+  "repository": "https://github.com/poikilos/usingpython-website.git/usingpython-website",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
