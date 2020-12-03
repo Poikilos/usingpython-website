@@ -1,12 +1,12 @@
 const { description } = require('../../package')
 
 module.exports = {
-  dest: '/home/user-data/www/expertmultimedia.com/usingpython',
+  dest: '../../../www/expertmultimedia.com/usingpython',
   base: '/usingpython/',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'Vuepress Docs Boilerplate',
+  title: 'Expert Multimedia - Using Python - Official Page',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -36,26 +36,40 @@ module.exports = {
     lastUpdated: false,
     nav: [
       {
-        text: 'Guide',
-        link: '/guide/',
+        text: 'Python 2 (+Panda3D)',
+        link: '/py2/',  // formerly config
       },
       {
-        text: 'Config',
-        link: '/config/'
+        text: 'Python 3',
+        link: '/py3/',  // formerly guide
       },
-      {
-        text: 'VuePress',
-        link: 'https://v1.vuepress.vuejs.org'
-      }
     ],
     sidebar: {
-      '/guide/': [
+      '/py3/': [ // formerly guide
         {
-          title: 'Guide',
+          title: 'Python 3',
           collapsable: false,
           children: [
             '',
-            'using-vue',
+            'installing-kivy',  // formerly using-vue
+            'kivy-pycharm',
+            'pygame-geany',
+            'tutorials',
+          ]
+        }
+      ],
+      '/py2/': [ // copy, formerly not here
+        {
+          title: 'Python 2',
+          collapsable: false,
+          children: [
+            '',
+            'tutorials',
+            'installing',
+            'installing-pygame',
+            'installing-wxpython',
+            'installing-panda3d',
+            'distributing',
           ]
         }
       ],
