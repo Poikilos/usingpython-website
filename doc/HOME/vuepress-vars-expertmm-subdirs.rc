@@ -1,0 +1,71 @@
+#!/bin/bash
+# This is an expertmultimedia-specific automation script for the "Setup environment"
+# section of https://poikilos.org/2020/12/02/use-vuepress-to-build-static-html-files/
+# - it is also specific to Mail-in-a-Box (MIAB)
+
+# Do not write "exit" in here, because it is an rc file meant to be placed
+# after the "source" command in bash.
+oldme=$me
+me=vuepress-vars-expertmm-subdirs.rc
+
+
+if [ -z "$1" ]; then
+cat << END
+
+You must specify the subdirectory under $MAINSITE where static html should go.
+
+Example:
+  source $me usingpython
+END
+else
+
+  SUBDIR="$1"
+  SUBDIR_REPO="https://github.com/poikilos/$SUBDIR-website.git"
+
+  WWW_USER="user-data"
+  WWW_GROUP="user-data"
+  # ^ usually www-data but is user-data on MAIB
+  WWW_HOME="/home/$WWW_USER"
+  # ^ usually /var/www but is /home/user-data on MAIB
+  MAINSITE="expertmultimedia.com"
+  PUBLIC_HTML="/home/$WWW_USER/www/$MAINSITE"
+  # ^ usually /var/www/html but is /home/user-data/www/<somedomain.com> on MAIB
+
+  if [ "@$USER" != "@$WWW_USER" ]; then
+    echo "You must run this as $WWW_USER"
+  else
+
+
+    if [ ! -d "$PUBLIC_HTML" ]; then
+      echo "ERROR: $PUBLIC_HTML must exist, or you must change MAINSITE=$MAINSITE to something else"
+      echo "  in $me and run it again."
+    else
+
+
+
+      cat <<END
+If you are running initial setup, ensure that $SUBDIR_REPO is a blank repo and exists before doing so.
+Otherwise you must change SUBDIR_REPO=$SUBDIR_REPO in $me.
+
+$me set the following variables
+(SUBDIR is the directory under $PUBLIC_HTML/$MAINSITE to use for public html):
+SUBDIR=$SUBDIR
+SUBDIR_REPO=$SUBDIR_REPO
+MAINSITE=$MAINSITE
+WWW_USER=$WWW_USER
+WWW_GROUP=$WWW_GROUP
+PUBLIC_HTML=$PUBLIC_HTML
+WWW_HOME=$WWW_HOME
+# ^ For example, if you do further operations now, the site metadata will be stored in
+# $WWW_HOME/$SUBDIR-meta
+# (you would run export-html.sh from there 
+# after following
+# https://poikilos.org/use-vuepress-to-build-static-html-files/)
+# and the public html will go in:
+# $PUBLIC_HTML/$SUBDIR
+
+END
+    fi
+  fi
+fi
+me=$oldme
