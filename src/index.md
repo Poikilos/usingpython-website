@@ -29,4 +29,10 @@ Other Sites by Jake Gustafson:
 - [Advanced Programming Using Java](https://expertmultimedia.com/usingjava/javaresources)
 
 Please report errors at
-[github.com/poikilos/usingpython-website/issues](https://github.com/poikilos/usingpython-website/issues).
+[github.com/poikilos/usingpython-website/issues](https://github.com/poikilos/usingpython-website/issues)
+(search for your issue in the search box to see if it exists first, in
+case it is already known or has a solution. If a number appears by
+"Closed" click that to see the solved issue(s)). Please do not report
+it again, but if you have more information, comment on the existing
+issue. Add an emoji to give the issue priority or to show that the
+instructions solved your problem.
