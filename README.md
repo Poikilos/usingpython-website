@@ -1,5 +1,5 @@
 # usingpython-website
-This is the ViewPress backend data ("source code") for the Using Python
+This is the VuePress backend data ("source code") for the Using Python
 Training Series Official Website.
 
 The website is at
