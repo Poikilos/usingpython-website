@@ -67,6 +67,27 @@ SUBDIR=usingpython
 source vuepress-vars-expertmm-subdirs.rc $SUBDIR
 cd $WWW_HOME/$MAINSITE-meta/$SUBDIR-meta
 git pull
+yarn
+# suggested by vuepress build:
+# npx browserslist@latest --update-db
+# suggested by above command:
+npx update-browserslist-db@latest
 ./export-html.sh
 ```
 
+## Troubleshooting:
+
+### There are no scenarios
+"ERROR: There are no scenarios; must have at least one."
+This indicates that the yarn command is an entirely different program than expected!
+
+Therefore:
+- `sudo apt remove cmdtest`
+- "You've got the wrong `yarn`"
+```
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update
+sudo apt install yarn
+```
+-<https://github.com/yarnpkg/yarn/issues/2821#issuecomment-284181365>
