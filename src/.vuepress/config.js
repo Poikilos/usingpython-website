@@ -1,8 +1,11 @@
 const { description } = require('../../package')
 
 module.exports = {
+/**
   dest: '../../../www/expertmultimedia.com/usingpython',
-  base: '/usingpython/',
+  */
+  dest: '../../../usingpython',
+  base: '/',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
