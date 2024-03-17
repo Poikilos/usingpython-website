@@ -60,6 +60,17 @@ WWW_USER=user-data
 sudo su $WWW_USER -s /bin/bash
 ```
 
+Beyond the scope of this VuePress instance, the dev computer requires steps to make "Resources" (https://expertmultimedia.com/usingpython-old) available:
+```
+cd www/expertmultimedia/usingpython-old
+# ^ Also contains config.php for github.com/Poikilos/directory-listing
+./push-usingpython.sh
+# ^ Also remotely clones github.com/Poikilos/directory-listing
+#   and remotely adds index.php to remote folder
+```
+- Resources folders such as the py3resources subdirectory on the remote site are linked using absolute links from the included md files.
+
+
 3. Export html as the www user.
 
 ```bash
